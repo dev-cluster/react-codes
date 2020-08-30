@@ -1,38 +1,35 @@
 import React, { useState } from "react";
 import "./style.css";
+
+// Importing Components
 import MyButton from "./MyButton";
+import List from "./List";
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0); // 0 is the default value here
   const [diff, setDiff] = useState(1);
+  // useState returns the value and a function to update that value
 
-  const [list, setList] = useState([1, 2, 3, 4, 5, 6]);
-  const [newItem, setNewItem] = useState("");
+  // function handleInputChange(event) {
+  //   setCounter(event.target.value);
+  // }
 
-  const listToShow = list.map((listItem, index) => (
-    <li key={`${listItem} - ${index}`}>{listItem}</li>
-  ));
-
+  // You need to return the content that needs to show up on the screen
+  // Within the return block, anything in curly braces is treated as a javascript expression
   return (
-    <div className="counter-container">
-      <div className="counter-value">
-        <p>Counter Value: {counter}</p>
-      </div>
-
-      <div>
-        <label htmlFor="diff">
-          Diff:
-          <input
-            id="diff"
-            type="number"
-            value={diff}
-            onChange={(event) => setDiff(Number(event.target.value))}
-          />
-        </label>
+    <div id="counter-container">
+      <div
+        className="counter-value" // in jsx instead of class, we have className
+      >
+        <p>{counter}</p>
+        {/* To display a variable's value, we enclose it in curly brackets */}
       </div>
 
       <div id="counter-button-container">
         <MyButton
+          // These are props passed to the Component, think of them as parameters/arguments
+          // props can be used to pass down values, functions etc
+          // We can reuse components using props
           counter={counter}
           setCounter={setCounter}
           value={diff}
@@ -43,6 +40,8 @@ function App() {
           type="number"
           value={counter}
           onChange={(event) => setCounter(event.target.value)}
+          // we have to pass a function to the "event listener"
+          // we can also do onChange={handleInputChange}
         />
 
         <MyButton
@@ -53,19 +52,22 @@ function App() {
         />
       </div>
 
-      <div>
-        <ul>{listToShow}</ul>
-
-        <input
-          type="text"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-        />
-
-        <button onClick={() => setList([...list, newItem])}>ADD TO LIST</button>
+      <div className="diff-container">
+        <label htmlFor="diff">
+          Number to change by:{" "}
+          <input
+            id="diff"
+            type="number"
+            value={diff}
+            onChange={(event) => setDiff(Number(event.target.value))}
+          />
+        </label>
       </div>
+
+      <List />
     </div>
   );
 }
 
+// Every React component must have a default export
 export default App;

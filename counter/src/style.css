@@ -1,19 +1,92 @@
-.counter-container {
-  color: red;
-  padding: 1rem;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.counter-button {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input {
   outline: none;
-  padding: 0.5rem;
   border: none;
-  color: blue;
-  background-color: #fff;
-  border: 1px solid #212121;
-  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+#counter-container {
+  color: #eee;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #212121;
+}
+
+.counter-value {
+  text-align: center;
+  font-size: 3rem;
 }
 
 #counter-button-container {
   display: flex;
   justify-content: space-around;
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.counter-button {
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  min-width: 150px;
+  border: none;
+  color: #0069ff;
+  font-weight: 600;
+  background-color: #424242;
+  border: 1px solid #212121;
+  border-radius: 0.25rem;
+}
+
+.diff-container {
+  text-align: center;
+}
+
+.diff-container label {
+  display: flex;
+  justify-content: space-around;
+}
+
+.list-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+.list-container li {
+  display: inline-block;
+  padding: 0.5rem;
+  background: #fff;
+  color: #212121;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 0.2rem;
+  margin: 0.25rem;
+}
+
+.list-container li:hover {
+  background: #212121;
+  color: #fff;
+  transition: 0.3s ease-in-out all;
+}
+
+.list-container button {
+  margin-top: 1rem;
 }
