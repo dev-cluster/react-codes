@@ -1,0 +1,19 @@
+.counter-container {
+  color: red;
+  padding: 1rem;
+}
+
+.counter-button {
+  outline: none;
+  padding: 0.5rem;
+  border: none;
+  color: blue;
+  background-color: #fff;
+  border: 1px solid #212121;
+  border-radius: 0.25rem;
+}
+
+#counter-button-container {
+  display: flex;
+  justify-content: space-around;
+}
