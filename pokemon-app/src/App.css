@@ -3,8 +3,26 @@
   flex-wrap: wrap;
 }
 
-#button-container {
+.button-container {
   margin: 0 auto;
   max-width: fit-content;
   padding: 2rem;
+}
+
+.pokemon-card:hover {
+  background: #eee !important;
+  transition: 0.3s all ease-in-out;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.5rem 0;
+}
+
+li:nth-of-type(2n) {
+  background: #eee;
 }

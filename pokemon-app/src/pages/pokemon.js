@@ -26,7 +26,17 @@ function Pokemon() {
   }
 
   const pokemonAbilities = pokemonData.abilities.map((item) => (
-    <Col>{item.ability.name}</Col>
+    <li key={item.ability.name}>{item.ability.name.toUpperCase()}</li>
+  ));
+
+  const pokemonStats = pokemonData.stats.map((item) => (
+    <li key={item.stat.name}>
+      {item.stat.name.toUpperCase()}: {item.base_stat}
+    </li>
+  ));
+
+  const pokemonTypes = pokemonData.types.map((item) => (
+    <li key={item.type.name}>{item.type.name.toUpperCase()}</li>
   ));
 
   return (
@@ -53,13 +63,29 @@ function Pokemon() {
         </Row>
 
         <Row>
-          <Col>Abilities</Col>
+          <Col>
+            <h4>Abilities</h4>
+            <br />
+            <ul>{pokemonAbilities}</ul>
+          </Col>
 
-          {pokemonAbilities}
+          <Col>
+            <h4>Stats</h4>
+            <br />
+            <ul>{pokemonStats}</ul>
+          </Col>
+
+          <Col>
+            <h4>Types</h4>
+            <br />
+            <ul>{pokemonTypes}</ul>
+          </Col>
         </Row>
 
         <Row>
-          <Link to="/">Go Back</Link>
+          <div className="p-2 button-container">
+            <Link to="/">Go Back</Link>
+          </div>
         </Row>
       </Container>
     </div>

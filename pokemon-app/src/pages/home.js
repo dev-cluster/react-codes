@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PokemonCard from "../components/PokemonCard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
@@ -46,20 +49,21 @@ function Home() {
     const pokemonId = pokemon.url.split("https://pokeapi.co/api/v2/pokemon/");
 
     return (
-      <PokemonCard
-        name={pokemon.name}
-        pokemonId={pokemonId[1]}
-        key={pokemon.name}
-      />
+      <Col md={3}>
+        <PokemonCard
+          name={pokemon.name}
+          pokemonId={pokemonId[1]}
+          key={pokemon.name}
+        />
+      </Col>
     );
   });
 
   return (
-    <div>
-      <PokemonCard />
-      <div id="pokemon-container">{pokemonList}</div>
+    <Container>
+      <Row>{pokemonList}</Row>
       {error ? "Something went wrong" : null}
-      <div id="button-container">
+      <div className="button-container">
         <Button variant="primary" onClick={loadMorePokemons} disabled={loading}>
           {loading ? (
             <Spinner animation="border" role="status">
@@ -70,7 +74,7 @@ function Home() {
           )}
         </Button>
       </div>
-    </div>
+    </Container>
   );
 }
 

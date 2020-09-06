@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 
 function PokemonCard({ name, pokemonId }) {
   return (
-    <Card style={{ width: "18rem" }} className="m-2" key={name}>
+    <Card className="m-2 pokemon-card" key={name}>
       <Card.Body>
-        <Card.Title> {name}</Card.Title>
+        <Card.Title>{name.toUpperCase()}</Card.Title>
         <Link to={`/${pokemonId}`}>View Details</Link>
       </Card.Body>
     </Card>
